@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GdNet.Data.EF", "GdNet.Data.EF\GdNet.Data.EF.csproj", "{24C9011A-355A-4E8A-BAC3-B9002A207C87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuGet.GdNet.Data.EF", "NuGet.GdNet.Data.EF\NuGet.GdNet.Data.EF.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24C9011A-355A-4E8A-BAC3-B9002A207C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C9011A-355A-4E8A-BAC3-B9002A207C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C9011A-355A-4E8A-BAC3-B9002A207C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C9011A-355A-4E8A-BAC3-B9002A207C87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
