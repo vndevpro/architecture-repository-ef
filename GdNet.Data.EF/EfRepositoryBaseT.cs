@@ -69,7 +69,7 @@ namespace GdNet.Data.EF
 
             if (entity == null)
             {
-                throw new EntityNotFoundExceptionT<TId>(id);
+                throw new EntityNotFoundException<TId>(id);
             }
 
             return entity;
