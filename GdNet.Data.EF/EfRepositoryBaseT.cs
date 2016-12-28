@@ -65,7 +65,7 @@ namespace GdNet.Data.EF
 
         public T GetById(TId id)
         {
-            var entity = Entities.FirstOrDefault(e => e.Id.Equals(id));
+            var entity = Entities.FirstOrDefault(e => (object)e.Id == (object)id);
 
             if (entity == null)
             {
