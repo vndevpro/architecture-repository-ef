@@ -6,7 +6,7 @@ namespace GdNet.Data.EF.Strategies
         where T : class, IEditableEntityT<TId>
         where TId : new()
     {
-        public void Execute(T entity)
+        public virtual void Execute(T entity)
         {
             entity.IsAvailable = false;
         }

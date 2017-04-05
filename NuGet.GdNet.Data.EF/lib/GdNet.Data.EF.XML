@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GdNet.Data.EF</name>
+    </assembly>
+    <members>
+        <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.#ctor(System.Data.Entity.IDbSet{`0})">
+            <summary>
+            By default, this constructor uses EmptySavingStrategy and ChangeAvailabilityOnDeletionStrategy
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.Extensions.DbContextExtensions.CreateQuery``1(System.Data.Entity.DbContext,System.String,System.Data.Entity.Core.Objects.ObjectParameter[])">
+            <summary>
+            A shorthand to use CreateQuery instead of ((IObjectContextAdapter)context).ObjectContext.CreateQuery
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.Extensions.DbContextExtensions.CreateObjectSet``1(System.Data.Entity.DbContext)">
+            <summary>
+            A shorthand to use CreateObjectSet instead of ((IObjectContextAdapter)context).ObjectContext.CreateObjectSet
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.Extensions.DbContextExtensions.GetObjectContext(System.Data.Entity.DbContext)">
+            <summary>
+            Get IObjectContextAdapter from the context
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.Strategies.ISavingStrategy.OnSaving">
+            <summary>
+            Before saving the entity(ies)
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.Strategies.ISavingStrategy.OnSaved">
+            <summary>
+            After saved the entity(ies)
+            </summary>
+        </member>
+    </members>
+</doc>
