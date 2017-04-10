@@ -27,6 +27,9 @@ namespace GdNet.Data.EF
         {
         }
 
+        /// <summary>
+        /// Set deletion & saving strategies explicitly
+        /// </summary>
         protected EfRepositoryBaseT(IDbSet<T> entities, ISavingStrategy savingStrategy, IDeletionStrategyT<T, TId> deletionStrategy)
         {
             Entities = entities;
@@ -34,11 +37,18 @@ namespace GdNet.Data.EF
             _deletionStrategy = deletionStrategy;
         }
 
+        /// <summary>
+        /// Count all entities in the system
+        /// </summary>
+        /// <returns></returns>
         public long Count()
         {
             return Entities.Count();
         }
 
+        /// <summary>
+        /// Count all entities in the system which match the filter
+        /// </summary>
         public long Count(Func<T, bool> filter)
         {
             return Entities.Count(filter);
