@@ -53,15 +53,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="GdNet.Domain.AppCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GdNet.Domain.AppCommon.2.0.4\lib\GdNet.Domain.AppCommon.dll</HintPath>
+      <HintPath>..\packages\GdNet.Domain.AppCommon.2.2.0\lib\GdNet.Domain.AppCommon.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
