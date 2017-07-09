@@ -41,19 +41,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="GdNet.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GdNet.Common.1.8.0\lib\GdNet.Common.dll</HintPath>
+      <HintPath>..\packages\GdNet.Common.1.9.0\lib\GdNet.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GdNet.Data.EF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GdNet.Data.EF.2.1.1\lib\GdNet.Data.EF.dll</HintPath>
+      <HintPath>..\packages\GdNet.Data.EF.2.1.2\lib\GdNet.Data.EF.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GdNet.Domain, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GdNet.Domain.2.0.4\lib\GdNet.Domain.dll</HintPath>
+      <HintPath>..\packages\GdNet.Domain.2.0.5\lib\GdNet.Domain.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GdNet.Domain.AppCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\GdNet.Domain.AppCommon.2.2.0\lib\GdNet.Domain.AppCommon.dll</HintPath>
+      <HintPath>..\packages\GdNet.Domain.AppCommon.2.2.4\lib\GdNet.Domain.AppCommon.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
