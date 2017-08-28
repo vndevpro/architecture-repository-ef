@@ -17,8 +17,9 @@ namespace GdNet.Data.EF
     {
         protected readonly IDbSet<T> Entities;
         protected readonly ISavingStrategy SavingStrategy;
+        protected readonly IFilterStrategy<T, TId> FilterStrategy;
+
         private readonly IDeletionStrategyT<T, TId> _deletionStrategy;
-        private readonly IFilterStrategy<T, TId> _filterStrategy;
 
         /// <summary>
         /// By default, this constructor uses EmptySavingStrategy and ChangeAvailabilityOnDeletionStrategy
@@ -42,7 +43,7 @@ namespace GdNet.Data.EF
             Entities = entities;
             SavingStrategy = savingStrategy;
             _deletionStrategy = deletionStrategy;
-            _filterStrategy = filterStrategy;
+            FilterStrategy = filterStrategy;
         }
 
         /// <summary>
@@ -51,7 +52,7 @@ namespace GdNet.Data.EF
         /// <returns></returns>
         public long Count()
         {
-            return Entities.Count(_filterStrategy.Predicate);
+            return Entities.Count(FilterStrategy.Predicate);
         }
 
         /// <summary>
@@ -135,7 +136,7 @@ namespace GdNet.Data.EF
         /// </summary>
         protected Result<T> OnGet(IEnumerable<T> entities, Page page)
         {
-            return OnGet(entities, page, _filterStrategy.Predicate);
+            return OnGet(entities, page, FilterStrategy.Predicate);
         }
 
         /// <summary>
