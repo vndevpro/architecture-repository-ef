@@ -39,8 +39,10 @@
     <Compile Include="EfRepositoryBase.cs" />
     <Compile Include="Strategies\ChangeAvailabilityOnDeletionStrategyT.cs" />
     <Compile Include="Strategies\EmptySavingStrategy.cs" />
+    <Compile Include="Strategies\EntityIsAvailableFilterStrategy.cs" />
     <Compile Include="Strategies\IDeletionStrategy.cs" />
     <Compile Include="Strategies\IDeletionStrategyT.cs" />
+    <Compile Include="Strategies\IFilterStrategy.cs" />
     <Compile Include="Strategies\ISavingStrategy.cs" />
     <Compile Include="Strategies\PermanentDeletionStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

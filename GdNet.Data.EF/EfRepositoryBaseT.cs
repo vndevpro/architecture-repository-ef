@@ -18,23 +18,31 @@ namespace GdNet.Data.EF
         protected readonly IDbSet<T> Entities;
         protected readonly ISavingStrategy SavingStrategy;
         private readonly IDeletionStrategyT<T, TId> _deletionStrategy;
+        private readonly IFilterStrategy<T, TId> _filterStrategy;
 
         /// <summary>
         /// By default, this constructor uses EmptySavingStrategy and ChangeAvailabilityOnDeletionStrategy
         /// </summary>
         protected EfRepositoryBaseT(IDbSet<T> entities)
-            : this(entities, new EmptySavingStrategy(), new ChangeAvailabilityOnDeletionStrategyT<T, TId>())
+            : this(entities,
+                new EmptySavingStrategy(),
+                new ChangeAvailabilityOnDeletionStrategyT<T, TId>(),
+                new EntityIsAvailableFilterStrategy<T, TId>())
         {
         }
 
         /// <summary>
         /// Set deletion & saving strategies explicitly
         /// </summary>
-        protected EfRepositoryBaseT(IDbSet<T> entities, ISavingStrategy savingStrategy, IDeletionStrategyT<T, TId> deletionStrategy)
+        protected EfRepositoryBaseT(IDbSet<T> entities,
+            ISavingStrategy savingStrategy,
+            IDeletionStrategyT<T, TId> deletionStrategy,
+            IFilterStrategy<T, TId> filterStrategy)
         {
             Entities = entities;
             SavingStrategy = savingStrategy;
             _deletionStrategy = deletionStrategy;
+            _filterStrategy = filterStrategy;
         }
 
         /// <summary>
@@ -43,7 +51,7 @@ namespace GdNet.Data.EF
         /// <returns></returns>
         public long Count()
         {
-            return Entities.Count();
+            return Entities.Count(_filterStrategy.Predicate);
         }
 
         /// <summary>
@@ -85,16 +93,22 @@ namespace GdNet.Data.EF
             return entity;
         }
 
+        /// <summary>
+        /// Get page of entities with default filter from filterStrategy.Predicate
+        /// </summary>
         public Result<T> Get(Page page)
         {
             return OnGet(Entities.OrderByDescending(x => x.LastModifiedAt), page);
         }
 
+        /// <summary>
+        /// Get page of entities with custom filter
+        /// </summary>
         public Result<T> Get(Page page, Func<T, bool> filter)
         {
             return OnGet(Entities.Where(filter).OrderByDescending(x => x.LastModifiedAt), page, filter);
         }
-
+        
         public T GetByFilter(Func<T, bool> filter)
         {
             return Entities.FirstOrDefault(filter);
@@ -116,23 +130,23 @@ namespace GdNet.Data.EF
             return entity;
         }
 
-        protected Result<TEntity> OnGet<TEntity>(IEnumerable<TEntity> entities, Page page)
+        /// <summary>
+        /// Get entities with applying default filter from filterStrategy.Predicate
+        /// </summary>
+        protected Result<T> OnGet(IEnumerable<T> entities, Page page)
         {
-            var offset = page.PageIndex * page.ItemsPerPage;
-            var pagedEntities = entities.Skip(offset).Take(page.ItemsPerPage);
-
-            return new Result<TEntity>(pagedEntities)
-            {
-                Total = Count()
-            };
+            return OnGet(entities, page, _filterStrategy.Predicate);
         }
 
-        protected Result<TEntity> OnGet<TEntity>(IEnumerable<TEntity> entities, Page page, Func<T, bool> filter)
+        /// <summary>
+        /// Get entities with applying custom filter
+        /// </summary>
+        protected Result<T> OnGet(IEnumerable<T> entities, Page page, Func<T, bool> filter)
         {
             var offset = page.PageIndex * page.ItemsPerPage;
-            var pagedEntities = entities.Skip(offset).Take(page.ItemsPerPage);
+            var pagedEntities = entities.Where(filter).Skip(offset).Take(page.ItemsPerPage);
 
-            return new Result<TEntity>(pagedEntities)
+            return new Result<T>(pagedEntities)
             {
                 Total = Count(filter)
             };

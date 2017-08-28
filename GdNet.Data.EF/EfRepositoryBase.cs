@@ -14,8 +14,11 @@ namespace GdNet.Data.EF
         {
         }
 
-        protected EfRepositoryBase(IDbSet<T> entities, ISavingStrategy savingStrategy, IDeletionStrategy<T> deletionStrategy)
-            : base(entities, savingStrategy, deletionStrategy)
+        protected EfRepositoryBase(IDbSet<T> entities,
+            ISavingStrategy savingStrategy,
+            IDeletionStrategy<T> deletionStrategy,
+            IFilterStrategy<T, Guid> filterStrategy)
+            : base(entities, savingStrategy, deletionStrategy, filterStrategy)
         {
         }
     }
