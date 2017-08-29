@@ -103,7 +103,7 @@ namespace GdNet.Data.EF
         }
 
         /// <summary>
-        /// Get page of entities with custom filter
+        /// Get page of entities with custom filter (not include the predicate from filterStrategy)
         /// </summary>
         public Result<T> Get(Page page, Func<T, bool> filter)
         {
@@ -140,7 +140,7 @@ namespace GdNet.Data.EF
         }
 
         /// <summary>
-        /// Get entities with applying custom filter
+        /// Get entities with applying custom filter (not include the predicate from filterStrategy)
         /// </summary>
         protected Result<T> OnGet(IEnumerable<T> entities, Page page, Func<T, bool> filter)
         {
