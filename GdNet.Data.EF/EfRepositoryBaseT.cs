@@ -107,19 +107,28 @@ namespace GdNet.Data.EF
         /// </summary>
         public Result<T> Get(Page page, Func<T, bool> filter)
         {
-            return OnGet(Entities.Where(filter).OrderByDescending(x => x.LastModifiedAt), page, filter);
+            return OnGet(Entities.OrderByDescending(x => x.LastModifiedAt), page, filter);
         }
         
+        /// <summary>
+        /// Get an entity by given filter
+        /// </summary>
         public T GetByFilter(Func<T, bool> filter)
         {
             return Entities.FirstOrDefault(filter);
         }
 
+        /// <summary>
+        /// Save a collection of entities
+        /// </summary>
         public IEnumerable<T> Save(IEnumerable<T> entities)
         {
             return entities.Select(Save);
         }
 
+        /// <summary>
+        /// Save one entity
+        /// </summary>
         public T Save(T entity)
         {
             SavingStrategy.OnSaving();
