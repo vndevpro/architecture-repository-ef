@@ -28,7 +28,22 @@
         </member>
         <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.Get(GdNet.Common.Page,System.Func{`0,System.Boolean})">
             <summary>
-            Get page of entities with custom filter
+            Get page of entities with custom filter (not include the predicate from filterStrategy)
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.GetByFilter(System.Func{`0,System.Boolean})">
+            <summary>
+            Get an entity by given filter
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.Save(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Save a collection of entities
+            </summary>
+        </member>
+        <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.Save(`0)">
+            <summary>
+            Save one entity
             </summary>
         </member>
         <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.OnGet(System.Collections.Generic.IEnumerable{`0},GdNet.Common.Page)">
@@ -38,7 +53,7 @@
         </member>
         <member name="M:GdNet.Data.EF.EfRepositoryBaseT`2.OnGet(System.Collections.Generic.IEnumerable{`0},GdNet.Common.Page,System.Func{`0,System.Boolean})">
             <summary>
-            Get entities with applying custom filter
+            Get entities with applying custom filter (not include the predicate from filterStrategy)
             </summary>
         </member>
         <member name="M:GdNet.Data.EF.Extensions.DbContextExtensions.CreateQuery``1(System.Data.Entity.DbContext,System.String,System.Data.Entity.Core.Objects.ObjectParameter[])">

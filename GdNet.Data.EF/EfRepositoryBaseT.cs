@@ -123,7 +123,7 @@ namespace GdNet.Data.EF
         /// </summary>
         public IEnumerable<T> Save(IEnumerable<T> entities)
         {
-            return entities.Select(Save);
+            return entities.Select(Save).ToList();
         }
 
         /// <summary>
